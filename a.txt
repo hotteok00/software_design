@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 main에서 수정
-=======
-test에서 수정
->>>>>>> test
 
 asdfopxo wm;v xpdfgh' ew
