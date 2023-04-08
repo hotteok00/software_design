@@ -126,9 +126,7 @@ function setSelectIndex() {
  * @param {*} value : year
  * @returns : year index
  */
-function findYearIndex(value) {
-    return todayYear - value + 5;
-}
+const findYearIndex = (value) => todayYear - value + 5;
 
 /**
  * Setting of dates in Calendar
