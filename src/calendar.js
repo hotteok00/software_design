@@ -61,8 +61,9 @@ function mkCalendar() {
                 // 달력에 날짜가 표시되지 않는 cell에 대해 반응 금지
                 if (cell.innerText == '') return;
 
+                setDate(new Date(year, month, cell.innerText));
                 // checkToday();
-                setDefaultAccountBook(i, cell.innerText);
+                setAccountBook(i, cell.innerText);
                 console.log('click : ' + cell.innerText);
             });
         }
