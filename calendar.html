@@ -145,8 +145,8 @@
                 <table id="monthly-table">
                     <thead id="monthly-head">
                         <tr>
-                            <th>Spending</th>
                             <th>Income</th>
+                            <th>Spending</th>
                             <th>Sum</th>
                         </tr>
                     </thead>
@@ -166,8 +166,8 @@
                 <table id="weekly-table">
                     <thead id="weekly-head">
                         <tr>
-                            <th>Spending</th>
                             <th>Income</th>
+                            <th>Spending</th>
                             <th>Sum</th>
                         </tr>
                     </thead>
@@ -187,15 +187,29 @@
             <table id="daily-table">
                 <thead id="daily-head">
                     <tr>
+                        <th>Ctr</th>
                         <th>Item</th>
-                        <th>Spending</th>
                         <th>Income</th>
+                        <th>Spending</th>
                     </tr>
                 </thead>
                 <tbody id="daily-body">
-                    <tr class="item-spend-income">
+                    <tr class="item-income-spend">
+                        <td id="Save & Delete" style="position: relative;">
+                            <button>Save</button>
+                            <button>Delete</button>
+                        </td>
                         <td style="position: relative;">
-                            <button style="position: absolute; top: 0; left: 0;">&#45;</button>
+                            <span>item</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="Add">
+                        <td>
+                            <button>Add</button>
+                        </td>
+                        <td style="position: relative;">
                             <span>item</span>
                         </td>
                         <td></td>
@@ -203,15 +217,14 @@
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Sum</td>
-                        <td colspan="2"></td>
+                        <td colspan="3"></td>
                     </tr>
                 </tbody>
             </table>
-            <button>&plus;</button>
         </div>
     </div>
-    <script src="ho_calendar.js"></script>
-    <script src="ho_accountbook.js"></script>
+    <script src="./src/calendar.js"></script>
+    <script src="./src/accountbook.js"></script>
 </body>
 
 </html>
