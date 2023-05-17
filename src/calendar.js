@@ -58,12 +58,14 @@ function mkCalendar() {
 
             const cell = cwi.cells[j];
             cell.addEventListener('click', (e) => {
+
                 // 달력에 날짜가 표시되지 않는 cell에 대해 반응 금지
                 if (cell.innerText == '') return;
 
                 setDate(new Date(year, month, cell.innerText));
-                // checkToday();
-                setAccountBook(i, cell.innerText);
+                clearAccountBook();
+                setAccountBook(year, month, cell.innerText);
+
                 console.log('click : ' + cell.innerText);
             });
         }

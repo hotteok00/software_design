@@ -14,38 +14,58 @@ const server = new WebSocket.Server({ port: 8090 });
 // database connection start
 connection.connect();
 
+/* connecting with client */
+server.on('connection', (socket) => {
+    console.log('Client connected');
+
+    // Handle messages from client
+    socket.on('message', (message) => {
+        message = JSON.parse(message);
+        console.dir(message);
+
+        const sql = message.sql;
+        const values = message.values;
+
+        // connection.connect();
+        connection.query(sql, values, function (error, results, fields) {
+            if (error)
+                console.log(error);
+            if (results.length > 0) {
+                console.log(results);
+                socket.send(JSON.stringify(results));
+            }
+        });
+        // connection.end();
+    });
+
+    // Handle WebSocket connection close event
+    socket.on('close', () => {
+        console.log('WebSocket connection closed by the client.');
+    });
+
+    // Handle any errors that occur during the WebSocket connection
+    socket.on('error', (error) => {
+        console.error('WebSocket error:', error);
+    });
+});
+
 
 /* user ########################################*/
 
-connection.query('select * from user', function (error, results, fields) {
-    if (error) throw error;
-    console.log('user');
-    console.log(results);
-});
+// connection.query('select * from user', function (error, results, fields) {
+//     if (error) throw error;
+//     console.log('user');
+//     console.log(results);
+// });
 
 
 /* account ###################################*/
 
-connection.query('select * from account', function (error, results, fields) {
-    if (error) throw error;
-    console.log('account');
-    console.log(results);
-
-    if (results.length > 0) {
-        server.on('connection', (socket) => {
-            console.log('Client connected');
-
-            // Send shared variable to client
-            socket.send(JSON.stringify(results));
-
-            // Handle messages from client
-            socket.on('message', (message) => {
-                sharedVariable = JSON.parse(message).value;
-                console.log(`Shared variable updated: ${sharedVariable}`);
-            });
-        });
-    }
-});
+// connection.query('select * from account', function (error, results, fields) {
+//     if (error) throw error;
+//     console.log('account');
+//     console.log(results);
+// });
 
 // database connection close
-connection.end();
+// connection.end();
