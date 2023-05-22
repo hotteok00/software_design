@@ -63,10 +63,11 @@ function mkCalendar() {
                 if (cell.innerText == '') return;
 
                 setDate(new Date(year, month, cell.innerText));
+                setRecordDate(date);
                 clearAccountBook();
-                setAccountBook(year, month, cell.innerText);
+                setAccountBook(year, month, date);
 
-                console.log('click : ' + cell.innerText);
+                console.log('click : ' + date);
             });
         }
     }
