@@ -27,7 +27,7 @@ server.on('connection', (socket) => {
         const values = message.values;
 
         // connection.connect();
-        connection.query(sql, values, function (error, results, fields) {
+        connection.query(sql, values, (error, results, fields) => {
             if (error)
                 console.log(error);
             if (results.length > 0) {
