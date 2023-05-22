@@ -187,35 +187,36 @@
             <table id="daily-table">
                 <thead id="daily-head">
                     <tr>
-                        <th>Ctr</th>
+                        <th>Ctrl</th>
                         <th>Item</th>
                         <th>Income</th>
                         <th>Spending</th>
                     </tr>
                 </thead>
                 <tbody id="daily-body">
-                    <tr class="item-income-spend">
-                        <td id="Save & Delete" style="position: relative;">
-                            <button>Save</button>
-                            <button>Delete</button>
+                    <!-- <tr class="show item-income-spend">
+                        <td class="Save & Delete" style="position: relative;">
+                            <button class="delete" style="width: 55px;">Delete</button>
                         </td>
-                        <td style="position: relative;">
-                            <span>item</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="Add">
+                        <td class="item"></td>
+                        <td class="income"></td>
+                        <td class="spend"></td>
+                    </tr> -->
+                    <tr id="add item-income-spend">
                         <td>
-                            <button>Add</button>
+                            <button id="add" style="width: 55px;">Add</button>
                         </td>
-                        <td style="position: relative;">
-                            <span>item</span>
+                        <td>
+                            <input id="item" type="text" placeholder="item" size="7">
                         </td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <input id="income" type="number" placeholder="income" min="0" max="99999">
+                        </td>
+                        <td>
+                            <input id="spending" type="number" placeholder="spending" min="0" max="99999">
+                        </td>
                     </tr>
-                    <tr>
+                    <tr id="sum">
                         <td style="font-weight: bold;">Sum</td>
                         <td colspan="3"></td>
                     </tr>
