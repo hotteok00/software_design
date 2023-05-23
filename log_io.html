@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <style>
+        /*middle of display*/
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container1">
+        <!-- Login form content goes here -->
+        <form id="log in">
+            <input id="userID" type="text" name="id" placeholder="ID">
+            <input id="userPW" type="password" name="password" placeholder="Password">
+            <button type="submit" style="width: 53px;">Log in</button>
+        </form>
+    </div>
+    <div id="container2">
+        <!-- Signup form content goes here -->
+        <form id="join">
+            <input id="userID" type="text" name="id" placeholder="ID">
+            <input id="userPW" type="password" name="password" placeholder="Password">
+            <button type="submit" style="width: 53px;">Join</button>
+        </form>
+    </div>
+    <script src="./src/log_io.js"></script>
+</body>
+
+</html>
