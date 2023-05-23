@@ -29,14 +29,14 @@ socket.onmessage = (event) => {
     console.log('socket.onmessage');
 
     let jsonData = JSON.parse(event.data);
-    console.log(jsonData);
+    // console.log(jsonData);
 
     jsonData.forEach(j => {
-        const utcTimestamp = j.date;
-        const dateUtc = new Date(utcTimestamp);
-        const options = { timeZone: "Asia/Seoul" };
-        const koreanTime = dateUtc.toLocaleString("en-US", options);
-        console.log(koreanTime);
+        // const utcTimestamp = j.date;
+        // const dateUtc = new Date(utcTimestamp);
+        // const options = { timeZone: "Asia/Seoul" };
+        // const koreanTime = dateUtc.toLocaleString("en-US", options);
+        // console.log(koreanTime);
 
         console.log(j);
 
@@ -81,12 +81,12 @@ socket.onmessage = (event) => {
         }
         dailyTableBody.insertAdjacentElement('afterbegin', saveNdelete);
 
-        console.dir(saveNdelete);
-        console.dir(dailyTableBody);
+        // console.dir(saveNdelete);
+        // console.dir(dailyTableBody);
 
-        console.log(item);
-        console.log(income);
-        console.log(spending);
+        // console.log(item);
+        // console.log(income);
+        // console.log(spending);
     });
 };
 socket.onclose = () => {
@@ -167,7 +167,7 @@ buttonAdd.addEventListener('click', () => {
         values: values
     };
 
-    console.dir('message : ' + message);
+    console.dir(message);
     socket.send(JSON.stringify(message));
 
     inputItem.value = "";
