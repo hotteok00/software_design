@@ -22,11 +22,11 @@ const calendarWeeks = [
 ];
 
 // date var
-const Today = new Date();   // 오늘
+const Today = new Date();               // Today
 const todayYear = Today.getFullYear();
 const todayMonth = Today.getMonth();
 
-let todayCell = {
+let todayCell = {                       // TodayCell
     cell: null,
     week: '',
     day: ''
@@ -63,11 +63,8 @@ function mkCalendar() {
                 if (cell.innerText == '') return;
 
                 setDate(new Date(year, month, cell.innerText));
-                setRecordDate(date);
                 clearAccountBook();
-                setAccountBook(year, month, date);
-
-                console.log('click : ' + date);
+                todayAccountBook(month, cwi.id, date);
             });
         }
     }
@@ -181,69 +178,53 @@ function setTodayBg() {
 }
 
 /* Button #########################################*/
+/**
+ * Move to previous month
+ */
 navBottons[0].addEventListener('click', (e) => {
     setDate(prevMonth);
     setCalendar();
     setTodayBg();
+    clearAccountBook()
 });
 
+/**
+ * Move to next month
+ */
 navBottons[3].addEventListener('click', (e) => {
     setDate(nextMonth);
     setCalendar();
     setTodayBg();
+    clearAccountBook()
 });
 
+/**
+ * Move to selected month
+ */
 navBottons[1].addEventListener('change', (e) => {
     e.preventDefault();
 
     setDate(new Date(year, navBottons[1].selectedIndex, date, day));
     setCalendar();
     setTodayBg();
+    clearAccountBook()
 });
 
+/**
+ * Move to selected year
+ */
 navBottons[2].addEventListener('change', (e) => {
     e.preventDefault();
 
     setDate(new Date(findYearIndex(navBottons[2].selectedIndex), month, date, day));
     setCalendar();
     setTodayBg();
+    clearAccountBook()
 });
 
 /* check ##########################################*/
-/**
- * check Elements func
- */
-function checkElement() {
-    console.dir(calendar);
 
-    console.dir(navBar);
-    for (let i of navBottons) console.dir(i);
-
-    console.dir(calendarTable);
-    console.dir(calendarHead);
-    console.dir(calendarBody);
-    for (let i of calendarWeeks) console.dir(i);
-}
-// checkElement();
-
-function checkDates() {
-    console.log(year);
-    console.log(month);
-    console.log(date);
-    console.log(day);
-
-    console.log(monthList[month]);
-    console.log(dayList[day]);
-
-    console.log(firstDate);
-    console.log(lastDate);
-
-    console.log(prevMonth);
-    console.log(nextMonth);
-}
-// checkDates();
-
-/*#################################################*/
+/* run ############################################*/
 setDate(new Date());
 mkOptions();
 mkCalendar();

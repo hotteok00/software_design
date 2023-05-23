@@ -30,10 +30,8 @@ server.on('connection', (socket) => {
         connection.query(sql, values, (error, results, fields) => {
             if (error)
                 console.log(error);
-            if (results.length > 0) {
-                console.log(results);
-                socket.send(JSON.stringify(results));
-            }
+            console.log(results);
+            socket.send(JSON.stringify(results));
         });
         // connection.end();
     });
@@ -48,24 +46,3 @@ server.on('connection', (socket) => {
         console.error('WebSocket error:', error);
     });
 });
-
-
-/* user ########################################*/
-
-// connection.query('select * from user', function (error, results, fields) {
-//     if (error) throw error;
-//     console.log('user');
-//     console.log(results);
-// });
-
-
-/* account ###################################*/
-
-// connection.query('select * from account', function (error, results, fields) {
-//     if (error) throw error;
-//     console.log('account');
-//     console.log(results);
-// });
-
-// database connection close
-// connection.end();
