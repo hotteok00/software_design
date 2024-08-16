@@ -1,4 +1,4 @@
-# software_design
+# Financial Ledger
 월별, 주별, 일별, 가계부
 
 ## 실행 환경 설정
